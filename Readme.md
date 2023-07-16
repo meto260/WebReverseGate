@@ -48,3 +48,8 @@ containers:
             - cd back4mvc
             - dotnet run
 ```
+<hr />
+
+<code>Example github webhook trigger</code>
+
+
