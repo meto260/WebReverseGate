@@ -1,0 +1,16 @@
+﻿containers:
+    - apps:
+        appname: testname
+        runbefore:
+            - taskkill /f /IM back4mvc.exe
+            - cd C:\temp\apptest1
+            - git clone https://github.com/meto260/back4mvc.git
+            - cd C:\temp\apptest1\back4mvc
+            - git pull
+        runafter:
+            - taskkill /f /IM back4mvc.exe
+            - cd C:\temp\apptest1\back4mvc
+            - dotnet build
+            - cd back4mvc
+            - dotnet run
+  
