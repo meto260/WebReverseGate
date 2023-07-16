@@ -4,6 +4,12 @@ A simple "reverse proxy" application that can record and manipulate traffic pass
 ![flow_image](https://raw.githubusercontent.com/meto260/WebReverseGate/master/flow.jpg)
 
 <hr />
+<span style="color:red;">A portable timeseries database Questdb is required!</span>
+
+[Download Questdb](https://questdb.io/get-questdb/)
+
+
+<hr />
 
 <code>appsettings.json</code>
 ```Json
