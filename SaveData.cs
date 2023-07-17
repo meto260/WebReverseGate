@@ -12,7 +12,7 @@
         await using NpgsqlConnection connection = new NpgsqlConnection(connectionString);
         await connection.OpenAsync();
         var sql = $"INSERT INTO Logger (createdate, clusterId, routeId, metaDatas, health, destinations) " +
-            $"VALUES (now(), '{input.clusterId}', '{input.routeId}', '{input.metaDatas}', '{input.health}', '{input.destinations}')";
+            $"VALUES (now(), @clusterId, @routeId, @metaDatas, @health, @destinations)";
 
         await using NpgsqlCommand command = new NpgsqlCommand(sql, connection);
         command.Parameters.AddWithValue("@clusterId", NpgsqlDbType.Varchar, input.clusterId);
