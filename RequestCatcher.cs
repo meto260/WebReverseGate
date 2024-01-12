@@ -28,6 +28,10 @@
             var requestTrailers = context.Request.CheckTrailersAvailable();
             var requestIp = context.Connection.RemoteIpAddress?.ToString() ?? "";
             var trace = context.TraceIdentifier;
+
+            // Call the next delegate/middleware in the pipeline.
+            await _next(context);
+
             try {
                 var responseHeaders = context.Response.Headers;
                 var responseCookies = context.Response.Cookies;
@@ -65,9 +69,6 @@
         catch (Exception exc) {
             await savedata.ExceptionSave(exc.Message);
         }
-
-        // Call the next delegate/middleware in the pipeline.
-        await _next(context);
     }
 }
 public static class RequestCatcherMiddlewareExtensions {
